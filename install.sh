@@ -3,6 +3,8 @@
 echo on
 
 cd ~/Downloads/
+mkdir autoinstall
+cd autoinstall
 
 echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
 echo "| Dependencies                                                        |"
@@ -158,13 +160,51 @@ echo "======================================================================"
 sudo npm install -g elm
 
 echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+echo "| emacs                                                              |"
+echo "======================================================================"
+
+sudo apt-get -y install emacs
+cd ~
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+# Revert back to previous directory
+cd -
+
+# http://www.zohaib.me/spacemacs-and-alchemist-to-make-elixir-of-immortality/
+# Need to ensure the dotspacemacs-configuration-layers looks similar to the following:
+
+# auto-completion
+# ;; better-defaults
+# colors
+# company-mode
+# editorconfig
+# elixir
+# emacs-lisp
+# erlang
+# git
+# html
+# markdown
+# org
+# ;; (shell :variables
+# ;;        shell-default-height 30
+# ;;        shell-default-position 'bottom)
+# ;; osx
+# perspectives
+# ;; spell-checking
+# syntax-checking
+# themes-megapack
+# ;; version-control
+
+
+# Then restart emacs
+
+echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
 echo "| atom                                                                |"
 echo "======================================================================"
 
 # wget https://github.com/atom/atom/releases/download/v1.6.2/atom-amd64.deb
 # sudo dpkg --install atom-amd64.deb
-sudo apt-get install atom
-apm install  autocomplete-elixir elm-format file-icons git-plus html-to-elm language-elixir language-elm  linter linter-elixirc linter-xmllint merge-conflicts minimap project-manager refactor regex-railroad-diagram split-diff tabs-to-spaces trailing-spaces xml-formatter
+sudo apt-get -y install atom
+apm install  autocomplete-elixir elm-format file-icons git-plus html-to-elm language-elixir language-elm language-lisp linter linter-elixirc linter-xmllint merge-conflicts minimap project-manager refactor regex-railroad-diagram split-diff tabs-to-spaces trailing-spaces xml-formatter
 
 echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
 echo "| check the version numbers to test the installations                |"
