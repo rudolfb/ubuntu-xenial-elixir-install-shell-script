@@ -42,7 +42,7 @@ sub_section_heading "git"
 set -x
 GIT_USER_EMAIL=""
 GIT_USER_NAME=""
-GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT=86400
+GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT="86400"
 set +x
 
 
@@ -134,7 +134,7 @@ fi
 
 if [ -n "${GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT}" ]; then
     # Save your password in memory and set the cache time in minutes manually:
-    git config --global credential.helper 'cache --timeout=$GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT'
+    git config --global credential.helper 'cache --timeout='$GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT
     # Set the cache to timeout after x secconds
     # 86400 = 1 day
     # default is 15 minutes
@@ -263,6 +263,8 @@ main_section_heading "Check the version numbers to test the installations"
 sub_section_heading "git"
 echo "git --version"
 git --version
+echo "git config --list"
+git config --list
 
 sub_section_heading "node"
 echo "node --version"
