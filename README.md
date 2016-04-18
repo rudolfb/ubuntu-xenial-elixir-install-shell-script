@@ -6,5 +6,15 @@ Copy the file to the Desktop, for example.
 
 ```
 cd Desktop
+./install.sh
+```
+
+You will be required to enter your superuser password when the first sudo is referenced in the script.
+
+Do *NOT* start the script as follows:
+
+```
 sudo ./install.sh
 ```
+
+This will start the entire script as a superuser, and any downloaded files will have superuser permissions. The current user will not have permissions for these files.
