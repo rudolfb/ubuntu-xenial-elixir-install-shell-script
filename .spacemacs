@@ -32,6 +32,10 @@ values."
      company-mode
      editorconfig
      elixir
+     elixir-yasnippets
+     elm
+     elm-oracle
+     elm-yasnippets
      emacs-lisp
      erlang
      git
