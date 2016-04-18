@@ -212,6 +212,8 @@ echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
 echo "| check the version numbers to test the installations                |"
 echo "======================================================================"
 
+su $USER
+
 echo " "
 echo " "
 echo "--- git"
@@ -273,8 +275,8 @@ echo " "
 echo " "
 echo "--- atom"
 echo "--------------------"
-echo "Check to see if atom is opened"
-atom
+echo "atom --version"
+atom --version
 echo " "
 echo " "
 
