@@ -115,7 +115,7 @@ cd -
 
 # Then restart emacs
 
-# Start emacs minimized so that while everything else is being 
+# Start emacs minimized so that while everything else is being
 # installed the emacs packages can be downloaded in the background.
 emacs --iconic &
 
@@ -164,7 +164,7 @@ if [ ! -f "$PG_REPO_APT_SOURCE" ]
 then
     # Add PG apt repo:
     echo "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main" > "$PG_REPO_APT_SOURCE"
-    
+
     # Add PGDG repo key:
     wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
 fi
