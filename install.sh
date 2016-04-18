@@ -1,6 +1,6 @@
 #!/bin/bash
 
-section_heading () {
+main_section_heading () {
     echo " "
     echo " "
     echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
@@ -21,7 +21,7 @@ sub_section_heading () {
 
 
 # ----------------------------------------------------------------------------------------------------
-section_heading "Environment variables"
+main_section_heading "Environment variables"
 # ----------------------------------------------------------------------------------------------------
 # Env variables used in the commands below
 
@@ -47,7 +47,7 @@ set +x
 
 
 # ----------------------------------------------------------------------------------------------------
-section_heading "Dependencies"
+main_section_heading "Dependencies"
 # ----------------------------------------------------------------------------------------------------
 set -x
 cd ~/Downloads/
@@ -78,7 +78,7 @@ yes Y | sudo apt-get -fy install
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-section_heading "emacs"
+main_section_heading "emacs"
 # ----------------------------------------------------------------------------------------------------
 set -x
 sudo apt-get -y install emacs
@@ -121,7 +121,7 @@ emacs --iconic &
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-section_heading "git"
+main_section_heading "git"
 # ----------------------------------------------------------------------------------------------------
 set -x
 if [ -n "${GIT_USER_EMAIL}" ]; then
@@ -143,16 +143,16 @@ fi
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-section_heading "nodejs 5.x"
+main_section_heading "nodejs 5.x"
 # ----------------------------------------------------------------------------------------------------
 set -x
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 set +x
-echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
-echo "| postgres and pgadmin                                               |"
-echo "======================================================================"
+# ----------------------------------------------------------------------------------------------------
+main_section_heading "postgres and pgadmin"
+# ----------------------------------------------------------------------------------------------------
 set -x
 
 ###########################################################
@@ -213,7 +213,7 @@ EOF
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-section_heading "elixir, incl. erlang"
+main_section_heading "elixir, incl. erlang"
 # ----------------------------------------------------------------------------------------------------
 set -x
 wget http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
@@ -228,7 +228,7 @@ sudo apt-get -y install elixir
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-section_heading "phoenix"
+main_section_heading "phoenix"
 # ----------------------------------------------------------------------------------------------------
 set -x
 mix local.hex --force
@@ -238,7 +238,7 @@ mix archive.install "https://github.com/phoenixframework/archives/raw/master/pho
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-section_heading "elm"
+main_section_heading "elm"
 # ----------------------------------------------------------------------------------------------------
 set -x
 sudo npm install -g elm
@@ -246,7 +246,7 @@ sudo npm install -g elm
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-section_heading "atom"
+main_section_heading "atom"
 # ----------------------------------------------------------------------------------------------------
 set -x
 # wget https://github.com/atom/atom/releases/download/v1.6.2/atom-amd64.deb
@@ -257,7 +257,7 @@ apm install  autocomplete-elixir elm-format file-icons git-plus html-to-elm lang
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-section_heading "Check the version numbers to test the installations"
+main_section_heading "Check the version numbers to test the installations"
 # ----------------------------------------------------------------------------------------------------
 
 sub_section_heading "git"
@@ -309,5 +309,5 @@ echo "Enter 'atom' in a shell to start atom."
 
 
 # ----------------------------------------------------------------------------------------------------
-section_heading "End"
+main_section_heading "End"
 # ----------------------------------------------------------------------------------------------------
