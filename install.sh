@@ -167,7 +167,9 @@ sudo apt-get -y install emacs
 cd ~
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # Revert back to previous directory
+wget https://github.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/raw/master/.spacemacs
 cd -
+
 
 # http://www.zohaib.me/spacemacs-and-alchemist-to-make-elixir-of-immortality/
 # Need to ensure the dotspacemacs-configuration-layers looks similar to the following:
@@ -261,6 +263,12 @@ if [ $(elm | grep -co 'Elm Platform') = 0 ]; then
 else
   elm | sed -e 1b -e '$!d'
 fi
+echo " "
+echo " "
+echo "--- emacs"
+echo "--------------------"
+echo "emacs --version"
+emacs --version
 echo " "
 echo " "
 echo "--- atom"
