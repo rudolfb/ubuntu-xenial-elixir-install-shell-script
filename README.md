@@ -6,16 +6,19 @@ Copy the file to the Desktop, for example.
 
 ```shell
 cd Desktop
-./install.sh > install.log
+./install.sh 2>&1 | tee install.log
 ```
 
 You will be required to enter your superuser password when the first `sudo` is referenced in the script.
+
+The `... 2>&1 | tee ...` redirects both stdout and stderr to a file and the stdout.
 
 Do _**not**_ start the script as follows:
 
 ```shell
 sudo ./install.sh
 ```
+
 
 This will start the entire script as a superuser, and any downloaded files will have superuser permissions. The current user will not have permissions for these files and parts of the installation will fail.
 
