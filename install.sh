@@ -242,6 +242,7 @@ main_section_heading "elm"
 # ----------------------------------------------------------------------------------------------------
 set -x
 sudo npm install -g elm
+sudo npm install -g elm-oracle
 
 
 set +x
