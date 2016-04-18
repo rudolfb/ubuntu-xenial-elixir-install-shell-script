@@ -6,7 +6,7 @@ Copy the file to the Desktop, for example.
 
 ```
 cd Desktop
-./install.sh
+./install.sh > install.log
 ```
 
 You will be required to enter your superuser password when the first sudo is referenced in the script.
