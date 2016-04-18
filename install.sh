@@ -67,13 +67,13 @@ sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev li
 # http://packages.ubuntu.com/search?suite=default&section=all&arch=any&keywords=libwxbase&searchon=names
 # Even after the explicit installation of libwxbase3.0-0v5 the dependencies are not resolved, so
 # this forces us to manually install libwxbase3 and libwxgtk3.
-wget http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/libwxbase3.0-0_3.0.2-1_amd64.deb
-yes Y | sudo dpkg -i libwxbase3.0-0_3.0.2-1*.deb
-yes Y | sudo apt-get -fy install
+# wget http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/libwxbase3.0-0_3.0.2-1_amd64.deb
+# yes Y | sudo dpkg -i libwxbase3.0-0_3.0.2-1*.deb
+# yes Y | sudo apt-get -fy install
 
-wget http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/libwxgtk3.0-0_3.0.2-1_amd64.deb
-yes Y | sudo dpkg -i libwxgtk3.0-0_3.0.2-1*.deb
-yes Y | sudo apt-get -fy install
+# wget http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/libwxgtk3.0-0_3.0.2-1_amd64.deb
+# yes Y | sudo dpkg -i libwxgtk3.0-0_3.0.2-1*.deb
+# yes Y | sudo apt-get -fy install
 
 
 set +x
@@ -222,7 +222,7 @@ sudo apt-key add erlang_solutions.asc
 sudo add-apt-repository "deb http://packages.erlang-solutions.com/ubuntu wily contrib"
 # sudo add-apt-repository "deb http://packages.erlang-solutions.com/ubuntu $(lsb_release -s -c) contrib"
 sudo apt-get update
-yes Y | sudo apt-get -y install esl-erlang
+yes Y | sudo apt-get -y install erlang-mode esl-erlang
 sudo apt-get -y install elixir
 
 
