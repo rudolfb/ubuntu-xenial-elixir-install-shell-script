@@ -97,6 +97,9 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 wget https://github.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/raw/master/.spacemacs
 cd -
 
+# Add ~/.local/bin to the PATH if it does not exist
+[[ ":$PATH:" != *":~/.local/bin:"* ]] && PATH="~/.local/bin:${PATH}"
+
 # http://www.zohaib.me/spacemacs-and-alchemist-to-make-elixir-of-immortality/
 # Need to ensure the dotspacemacs-configuration-layers looks similar to the following:
 
