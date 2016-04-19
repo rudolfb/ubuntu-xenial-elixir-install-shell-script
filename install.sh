@@ -62,10 +62,14 @@ cd autoinstall
 # For atom
 sudo add-apt-repository -y ppa:webupd8team/atom
 
+# sudo apt-add-repository 'deb http://repos.codelite.org/wx3.0.2/ubuntu/ trusty universe'
+# wget --quiet -O - http://repos.codelite.org/CodeLite.asc | sudo apt-key add -
+
 sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git
+sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git 
 # libgtk2.0-0 libgtk2.0-bin libgtk2.0-common
+# libwxbase3.0-0-unofficial libwxgtk3.0-0-unofficial
 
 # Problem installing esl-erlang.
 # Standard installation methods for libwxbase fail.
