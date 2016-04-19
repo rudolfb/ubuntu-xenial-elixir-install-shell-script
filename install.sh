@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Usage
+# cd Desktop
+# ./install.sh 2>&1 | tee install.log
+#
+
 main_section_heading () {
     echo " "
     echo " "
