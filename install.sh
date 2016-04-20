@@ -129,7 +129,7 @@ cd -
 
 # Start emacs minimized so that while everything else is being
 # installed the emacs packages can be downloaded in the background.
-emacs --iconic &
+(emacs--iconic &> /dev/null &)
 
 set +x
 # ----------------------------------------------------------------------------------------------------
