@@ -67,7 +67,7 @@ sudo add-apt-repository -y ppa:webupd8team/atom
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git 
+sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git
 # libgtk2.0-0 libgtk2.0-bin libgtk2.0-common
 # libwxbase3.0-0-unofficial libwxgtk3.0-0-unofficial
 
@@ -230,9 +230,11 @@ main_section_heading "elixir, incl. erlang"
 set -x
 wget http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
 sudo apt-key add erlang_solutions.asc
-# There is as of now no erlang download for xenial, so we have to hard code wily.
-sudo add-apt-repository "deb http://packages.erlang-solutions.com/ubuntu wily contrib"
-# sudo add-apt-repository "deb http://packages.erlang-solutions.com/ubuntu $(lsb_release -s -c) contrib"
+if [ $(lsb_release -s -c) == 'xenial' ]; then
+    sudo add-apt-repository "deb http://packages.erlang-solutions.com/ubuntu $(lsb_release -s -c) contrib"
+else
+    sudo add-apt-repository "deb http://packages.erlang-solutions.com/ubuntu wily contrib"
+fi
 sudo apt-get update
 yes Y | sudo apt-get -y install erlang-mode esl-erlang
 sudo apt-get -y install elixir
