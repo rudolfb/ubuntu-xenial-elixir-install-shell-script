@@ -45,8 +45,8 @@ set +x
 
 sub_section_heading "git"
 set -x
-GIT_USER_EMAIL=""
-GIT_USER_NAME=""
+GIT_USER_EMAIL="rudolf@bargholz.ch"
+GIT_USER_NAME="Rudolf Bargholz"
 GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT="86400"
 set +x
 
@@ -94,7 +94,7 @@ sudo apt-get -y install emacs
 cd ~
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # Revert back to previous directory
-wget https://github.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/raw/master/.spacemacs
+wget --quiet https://github.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/raw/master/.spacemacs
 cd -
 
 # Add ~/.local/bin to the PATH if it does not exist
@@ -228,7 +228,7 @@ set +x
 main_section_heading "elixir, incl. erlang"
 # ----------------------------------------------------------------------------------------------------
 set -x
-wget http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+wget --quiet http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
 sudo apt-key add erlang_solutions.asc
 if [ $(lsb_release -s -c) == 'xenial' ]; then
     sudo add-apt-repository "deb http://packages.erlang-solutions.com/ubuntu $(lsb_release -s -c) contrib"
@@ -237,7 +237,30 @@ else
 fi
 sudo apt-get update
 yes Y | sudo apt-get -y install erlang-mode esl-erlang
-sudo apt-get -y install elixir
+
+# The following fails dismally in xenial, referencing v1.1.0
+# sudo apt-get -y install elixir
+
+git clone https://github.com/elixir-lang/elixir.git
+cd elixir
+ELIXIRLASTREVISION=$(git rev-list --tags --max-count=1)
+ELIXIRLASTTAG=$(git describe --tags ${ELIXIRLASTREVISION})
+echo $ELIXIRLASTTAG
+cd -
+rm --force --recursive elixir/
+wget --quiet https://github.com/elixir-lang/elixir/releases/download/${ELIXIRLASTTAG}/Precompiled.zip
+sudo rm -R /usr/lib/elixir
+sudo unzip Precompiled.zip -d /usr/lib/elixir/
+sudo rm /usr/bin/iex
+sudo rm /usr/bin/elixir
+sudo rm /usr/bin/elixirc
+sudo rm /usr/bin/mix
+sudo ln -s ../lib/elixir/bin/iex /usr/bin/
+sudo ln -s ../lib/elixir/bin/elixir /usr/bin/
+sudo ln -s ../lib/elixir/bin/elixirc /usr/bin/
+sudo ln -s ../lib/elixir/bin/mix /usr/bin/
+
+
 
 
 set +x
