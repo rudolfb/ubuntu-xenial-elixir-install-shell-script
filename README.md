@@ -35,7 +35,20 @@ sudo ./install.sh
 
 This will start the entire script as a superuser, and any downloaded files will have superuser permissions. The current user will not have permissions for these files and parts of the installation will fail.
 
-# Problem with the script
+### Reasons for specific implemetaions
+
+#### Elixir
+Even though the [Elixir Installation](http://elixir-lang.org/install.html) notes mention that you can install Elixir on Ubuntu using
+
+```
+sudo apt-get install elixir
+```
+there is a problem using this method. According to the following [reference](http://packages.ubuntu.com/xenial/elixir) the version that is installed using `apt-get` is **elixir (1.1.0~0.20150708-1)**, which is suboptimal. This install script thus downloads and installs the latest precompiled build from github.
+
+#### Atom
+Atom on Ubuntu currently does not auto-update, as it does on Mac and Windows. It is possible to download a new version, double click on the file and let Ubuntu perform the update, but the repo **ppa:webupd8team/atom** is kept up to date and automates the update whenever a `sudo apt-get upgrade` is executed.
+
+### Problem with the script
 
 The script has a problem installing `esl-erlang`.
 
@@ -60,6 +73,9 @@ E: Unable to correct problems, you have held broken packages.
 
 Even though there is this error, the installation completes successfully, and Elxir and Erlang can both be opened. There might however be some issues using Erlang tools that require these packages.
 
+#### Update, 27. April 2016
+I no longer see this error in the installation log on xenial.
+
 # References
 
 http://www.zohaib.me/spacemacs-and-alchemist-to-make-elixir-of-immortality/
@@ -68,8 +84,14 @@ https://github.com/kiere/vagrant-phoenix-postgres
 
 # Useful commands
 
-### List the locally installed packages
+#### List the locally installed packages
 
 ```shell
 sudo dpkg -l
+```
+
+#### List the locally installed packages and find some packages
+
+```shell
+sudo dpkg -l | grep erlang
 ```
