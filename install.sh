@@ -45,8 +45,8 @@ set +x
 
 sub_section_heading "git"
 set -x
-GIT_USER_EMAIL="rudolf@bargholz.ch"
-GIT_USER_NAME="Rudolf Bargholz"
+GIT_USER_EMAIL=""
+GIT_USER_NAME=""
 GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT="86400"
 set +x
 
@@ -236,7 +236,8 @@ else
     sudo add-apt-repository "deb http://packages.erlang-solutions.com/ubuntu wily contrib"
 fi
 sudo apt-get update
-yes Y | sudo apt-get -y install erlang-mode esl-erlang
+yes Y | sudo apt-get -y install esl-erlang
+yes Y | sudo apt-get -y install erlang-mode
 
 # The following fails dismally in xenial, referencing v1.1.0
 # sudo apt-get -y install elixir
@@ -251,6 +252,7 @@ rm --force --recursive elixir/
 wget --quiet https://github.com/elixir-lang/elixir/releases/download/${ELIXIRLASTTAG}/Precompiled.zip
 sudo rm -R /usr/lib/elixir
 sudo unzip Precompiled.zip -d /usr/lib/elixir/
+sudo rm Precompiled.zip
 sudo rm /usr/bin/iex
 sudo rm /usr/bin/elixir
 sudo rm /usr/bin/elixirc
@@ -259,8 +261,6 @@ sudo ln -s ../lib/elixir/bin/iex /usr/bin/
 sudo ln -s ../lib/elixir/bin/elixir /usr/bin/
 sudo ln -s ../lib/elixir/bin/elixirc /usr/bin/
 sudo ln -s ../lib/elixir/bin/mix /usr/bin/
-
-
 
 
 set +x
