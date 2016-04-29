@@ -281,6 +281,10 @@ set -x
 sudo npm install -g elm
 sudo npm install -g elm-oracle
 
+# https://github.com/jmfirth/generator-elm-spa
+npm install -g yo gulp
+npm install -g generator-elm-spa
+
 
 set +x
 # ----------------------------------------------------------------------------------------------------
