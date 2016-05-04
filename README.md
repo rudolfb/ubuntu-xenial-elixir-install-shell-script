@@ -45,6 +45,9 @@ sudo apt-get install elixir
 ```
 there is a problem using this method. According to the following [reference](http://packages.ubuntu.com/xenial/elixir) the version that is installed using `apt-get` is **elixir (1.1.0~0.20150708-1)**, which is suboptimal. This install script thus downloads and installs the latest precompiled build from github.
 
+###### Update, 5. May 2016
+This issue no longer exists, and the standard installation procedure for Ubuntu documented on the elixir-lang website works fine again.
+
 #### Atom
 Atom on Ubuntu currently does not auto-update, as it does on Mac and Windows. It is possible to download a new version, double click on the file and let Ubuntu perform the update, but the repo **ppa:webupd8team/atom** is kept up to date and automates the update whenever a `sudo apt-get upgrade` is executed.
 
@@ -73,7 +76,7 @@ E: Unable to correct problems, you have held broken packages.
 
 Even though there is this error, the installation completes successfully, and Elxir and Erlang can both be opened. There might however be some issues using Erlang tools that require these packages.
 
-#### Update, 27. April 2016
+###### Update, 27. April 2016
 I no longer see this error in the installation log on xenial.
 
 # References
