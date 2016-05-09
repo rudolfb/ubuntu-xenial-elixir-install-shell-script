@@ -277,7 +277,7 @@ set -x
 # wget https://github.com/atom/atom/releases/download/v1.6.2/atom-amd64.deb
 # sudo dpkg --install atom-amd64.deb
 sudo apt-get -y install atom
-apm install  autocomplete-elixir elm-format file-icons git-plus html-to-elm language-elixir language-elm language-lisp linter linter-elixirc linter-xmllint merge-conflicts minimap project-manager refactor regex-railroad-diagram split-diff tabs-to-spaces trailing-spaces xml-formatter
+apm install  autocomplete-elixir elm-format file-icons git-plus html-to-elm language-elixir language-elm language-lisp linter linter-elixirc linter-xmllint merge-conflicts minimap project-manager refactor regex-railroad-diagram split-diff tabs-to-spaces trailing-spaces xml-formatter monokai
 
 
 set +x
