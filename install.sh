@@ -135,6 +135,7 @@ wget --quiet https://packagecontrol.io/Package%20Control.sublime-package
 mkdir -p ~/.config/sublime-text-3/Packages/User
 cd ~/.config/sublime-text-3/Packages/User/
 wget --quiet https://github.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/raw/master/sublime-text-3/Package%20Control.sublime-settings
+wget --quiet https://raw.githubusercontent.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/master/sublime-text-3/Terminal.sublime-settings
 
 # Revert back to previous directory
 cd $cwd
@@ -267,6 +268,10 @@ sudo npm install -g elm-oracle
 # https://github.com/jmfirth/generator-elm-spa
 sudo npm install -g yo gulp
 sudo npm install -g generator-elm-spa
+
+wget --quiet https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz
+tar zxvf elm-format-0.2.0-alpha-linux-x64.tgz
+sudo mv -f elm-format /usr/bin
 
 
 set +x
