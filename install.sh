@@ -64,8 +64,7 @@ sudo add-apt-repository -y ppa:webupd8team/atom
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git
-
+sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git unison unison-gtk
 set +x
 # ----------------------------------------------------------------------------------------------------
 main_section_heading "emacs"
@@ -271,7 +270,7 @@ sudo npm install -g generator-elm-spa
 
 wget --quiet https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz
 tar zxvf elm-format-0.2.0-alpha-linux-x64.tgz
-sudo mv -f elm-format /usr/bin
+sudo mv -f elm-format /usr/local/bin/
 
 
 set +x
