@@ -45,8 +45,8 @@ set +x
 
 sub_section_heading "git"
 set -x
-GIT_USER_EMAIL=""
-GIT_USER_NAME=""
+GIT_USER_EMAIL="rudolf@bargholz.ch"
+GIT_USER_NAME="Rudolf Bargholz"
 GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT="86400"
 set +x
 
@@ -111,6 +111,39 @@ cd -
 # Start emacs minimized so that while everything else is being
 # installed the emacs packages can be downloaded in the background.
 emacs --iconic &
+
+set +x
+# ----------------------------------------------------------------------------------------------------
+main_section_heading "sublime text 3"
+# ----------------------------------------------------------------------------------------------------
+set -x
+
+# Note: this is a dev build and requires a valid serial number
+# I was not able to find an easy way to get the last version number of Sublime Text 3
+LATESTNUMBER=$(wget -O - https://www.sublimetext.com/3dev | grep -o 'href="https://download.sublimetext.com/Sublime Text Build [0-9][0-9][0-9][0-9].dmg"' | grep -o -E '[0-9]+')
+
+# wget --quiet https://download.sublimetext.com/sublime-text_build-3112_amd64.deb && sudo dpkg -i sublime-text_build-3112_amd64.deb
+wget --quiet https://download.sublimetext.com/sublime-text_build-${LATESTNUMBER}_amd64.deb && sudo dpkg -i sublime-text_build-${LATESTNUMBER}_amd64.deb
+
+
+cwd=$(pwd)
+
+mkdir -p ~/.config/sublime-text-3/Installed\ Packages
+cd ~/.config/sublime-text-3/Installed\ Packages/
+wget --quiet https://packagecontrol.io/Package%20Control.sublime-package
+# Revert back to previous directory
+
+
+mkdir -p ~/.config/sublime-text-3/Packages/User
+cd ~/.config/sublime-text-3/Packages/User/
+wget --quiet https://github.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/blob/master/sublime-text-3/Package%20Control.sublime-settings
+# Revert back to previous directory
+
+
+cd $cwd
+
+# When you open Sublime Text the package control will automatically be initialized, and all packages in the sublime.settings will be dlownloaded and installed.
+subl --background &
 
 set +x
 # ----------------------------------------------------------------------------------------------------
