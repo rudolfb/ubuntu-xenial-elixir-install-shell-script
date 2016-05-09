@@ -131,19 +131,17 @@ cwd=$(pwd)
 mkdir -p ~/.config/sublime-text-3/Installed\ Packages
 cd ~/.config/sublime-text-3/Installed\ Packages/
 wget --quiet https://packagecontrol.io/Package%20Control.sublime-package
-# Revert back to previous directory
-
 
 mkdir -p ~/.config/sublime-text-3/Packages/User
 cd ~/.config/sublime-text-3/Packages/User/
-wget --quiet https://github.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/blob/master/sublime-text-3/Package%20Control.sublime-settings
+wget --quiet https://github.com/rudolfb/ubuntu-xenial-elixir-install-shell-script/raw/master/sublime-text-3/Package%20Control.sublime-settings
+
 # Revert back to previous directory
-
-
 cd $cwd
 
-# When you open Sublime Text the package control will automatically be initialized, and all packages in the sublime.settings will be dlownloaded and installed.
+# When you open Sublime Text the package control will automatically be initialized, and all packages in the sublime.settings will be downloaded and installed.
 subl --background &
+
 
 set +x
 # ----------------------------------------------------------------------------------------------------
