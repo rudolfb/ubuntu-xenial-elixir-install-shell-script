@@ -69,7 +69,7 @@ sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev li
 # unison: for folder sync
 # https://www.howtoforge.com/tutorial/unison-file-sync-between-two-servers-on-debian-jessie/
 
-# htop: for memory usage 
+# htop: for memory usage
 
 set +x
 # ----------------------------------------------------------------------------------------------------
