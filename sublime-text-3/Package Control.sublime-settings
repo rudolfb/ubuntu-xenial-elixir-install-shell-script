@@ -12,8 +12,11 @@
 		"Git",
 		"Gitignore",
 		"Highlight Build Errors",
+		"HTML-CSS-JS Prettify",
+		"Indent XML",
 		"Markdown Preview",
 		"Package Control",
+		"Path Tools",
 		"SublimeLinter-contrib-elm-make",
 		"SublimeREPL",
 		"Terminal"
