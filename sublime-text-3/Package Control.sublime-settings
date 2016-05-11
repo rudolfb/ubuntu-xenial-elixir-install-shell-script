@@ -14,9 +14,12 @@
 		"Highlight Build Errors",
 		"HTML-CSS-JS Prettify",
 		"Indent XML",
+		"Markdown Extended",
 		"Markdown Preview",
+		"Monokai Extended",
 		"Package Control",
 		"Path Tools",
+		"StringEncode",
 		"SublimeLinter-contrib-elm-make",
 		"SublimeREPL",
 		"Terminal"
