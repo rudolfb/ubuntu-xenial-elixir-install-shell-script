@@ -271,7 +271,7 @@ sudo npm install -g elm
 sudo npm install -g elm-oracle
 
 # https://github.com/jmfirth/generator-elm-spa
-sudo npm install -g yo gulp
+sudo yes Y |  npm install -g yo gulp
 sudo npm install -g generator-elm-spa
 
 wget --quiet https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz
