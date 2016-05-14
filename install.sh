@@ -64,7 +64,7 @@ sudo add-apt-repository -y ppa:webupd8team/atom
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git unison unison-gtk htop
+sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git unison unison-gtk htop inotify-tools
 
 # unison: for folder sync
 # https://www.howtoforge.com/tutorial/unison-file-sync-between-two-servers-on-debian-jessie/
