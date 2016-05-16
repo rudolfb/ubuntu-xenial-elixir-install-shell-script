@@ -16,10 +16,13 @@
 		"Indent XML",
 		"Markdown Extended",
 		"Markdown Preview",
+		"MarkdownEditing",
 		"Monokai Extended",
 		"Package Control",
 		"Path Tools",
 		"StringEncode",
+		"SublimeLinter",
+		"SublimeLinter-contrib-elixirc",
 		"SublimeLinter-contrib-elm-make",
 		"SublimeREPL",
 		"Terminal"
