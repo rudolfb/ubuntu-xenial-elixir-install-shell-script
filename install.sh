@@ -274,8 +274,9 @@ sudo npm install -g elm-oracle
 sudo yes Y |  npm install -g yo gulp
 sudo npm install -g generator-elm-spa
 
-wget --quiet https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz
-tar zxvf elm-format-0.2.0-alpha-linux-x64.tgz
+# https://github.com/avh4/elm-format
+wget --quiet https://github.com/avh4/elm-format/releases/download/0.3.0-alpha/elm-format-0.17-0.3.0-alpha-linux-x64.tgz
+tar zxvf elm-format-0.17-0.3.0-alpha-linux-x64
 sudo mv -f elm-format /usr/local/bin/
 
 
