@@ -62,9 +62,25 @@ cd autoinstall
 # For atom
 sudo add-apt-repository -y ppa:webupd8team/atom
 
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev git unison unison-gtk htop inotify-tools
+sudo apt -y update
+sudo apt -y upgrade
+sudo apt -y install \
+autoconf \
+bison \
+build-essential \
+libssl-dev \
+libyaml-dev \
+libreadline6-dev \
+zlib1g-dev \
+libncurses5-dev \
+libffi-dev \
+libgdbm3 \
+libgdbm-dev \
+git \
+unison \
+unison-gtk \
+htop \
+inotify-tools
 
 # unison: for folder sync
 # https://www.howtoforge.com/tutorial/unison-file-sync-between-two-servers-on-debian-jessie/
@@ -76,7 +92,7 @@ set +x
 main_section_heading "emacs"
 # ----------------------------------------------------------------------------------------------------
 set -x
-sudo apt-get -y install emacs
+sudo apt -y install emacs
 cd ~
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # Revert back to previous directory
@@ -173,11 +189,11 @@ fi
 
 set +x
 # ----------------------------------------------------------------------------------------------------
-main_section_heading "nodejs 5.x"
+main_section_heading "nodejs 7.x"
 # ----------------------------------------------------------------------------------------------------
 set -x
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt install -y nodejs
 
 set +x
 # ----------------------------------------------------------------------------------------------------
@@ -201,12 +217,12 @@ fi
 
 
 # Update package list and upgrade all packages
-sudo apt-get update
-sudo apt-get -y upgrade
+sudo apt update
+sudo apt -y upgrade
 
-sudo apt-get -y install "postgresql-$PG_VERSION" "postgresql-contrib-$PG_VERSION"
-sudo apt-get -y install libpq-dev # For building ruby 'pg' gem
-sudo apt-get -y install pgadmin3
+sudo apt -y install "postgresql-$PG_VERSION" "postgresql-contrib-$PG_VERSION"
+sudo apt -y install libpq-dev # For building ruby 'pg' gem
+sudo apt -y install pgadmin3
 
 PG_CONF="/etc/postgresql/$PG_VERSION/main/postgresql.conf"
 PG_HBA="/etc/postgresql/$PG_VERSION/main/pg_hba.conf"
@@ -246,10 +262,25 @@ set +x
 main_section_heading "elixir, incl. erlang"
 # ----------------------------------------------------------------------------------------------------
 set -x
-wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
-sudo apt-get update
-sudo apt-get -y install esl-erlang
-sudo apt-get -y install elixir
+# https://www.erlang-solutions.com/resources/download.html
+if [[ `lsb_release -cs` == "xenial" ]] 
+then
+  # under xenial the installation of erlang and elixir per default installation method works fine
+  wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+else
+  # under yakkety (16.10) there is no erlang package, so we have to explicitly use the package for xenial (16.04)
+  if ! grep -Fxq "deb https://packages.erlang-solutions.com/ubuntu xenial contrib" /etc/apt/sources.list
+  then
+    sudo sed -i '$a deb https://packages.erlang-solutions.com/ubuntu xenial contrib' /etc/apt/sources.list    
+  fi
+  rm -f erlang_solutions.asc
+  wget https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+  sudo apt-key add erlang_solutions.asc
+  rm -f erlang_solutions.asc
+fi
+sudo apt update
+sudo apt -y install esl-erlang
+sudo apt -y install elixir
 
 
 set +x
@@ -271,13 +302,15 @@ sudo npm install -g elm
 sudo npm install -g elm-oracle
 
 # https://github.com/jmfirth/generator-elm-spa
-sudo yes Y |  npm install -g yo gulp
-sudo npm install -g generator-elm-spa
+# sudo yes Y |  npm install -g yo gulp
+# sudo npm install -g generator-elm-spa
 
 # https://github.com/avh4/elm-format
-wget --quiet https://github.com/avh4/elm-format/releases/download/0.3.0-alpha/elm-format-0.17-0.3.0-alpha-linux-x64.tgz
-tar zxvf elm-format-0.17-0.3.0-alpha-linux-x64
+rm -f elm-format-0.17-0.4.0-alpha-linux-x64.tgz
+wget --quiet https://github.com/avh4/elm-format/releases/download/0.4.0-alpha/elm-format-0.17-0.4.0-alpha-linux-x64.tgz
+tar zxvf elm-format-0.17-0.4.0-alpha-linux-x64.tgz
 sudo mv -f elm-format /usr/local/bin/
+rm -f elm-format-0.17-0.4.0-alpha-linux-x64.tgz
 
 
 set +x
@@ -287,8 +320,29 @@ main_section_heading "atom"
 set -x
 # wget https://github.com/atom/atom/releases/download/v1.6.2/atom-amd64.deb
 # sudo dpkg --install atom-amd64.deb
-sudo apt-get -y install atom
-apm install  autocomplete-elixir elm-format file-icons git-plus html-to-elm language-elixir language-elm language-lisp linter linter-elixirc linter-xmllint merge-conflicts minimap project-manager refactor regex-railroad-diagram split-diff tabs-to-spaces trailing-spaces xml-formatter monokai
+sudo apt -y install atom
+apm install \
+autocomplete-elixir \
+elm-format \
+file-icons \
+git-plus \
+html-to-elm \
+language-elixir \
+language-elm \
+language-lisp \
+linter \
+linter-elixirc \
+linter-xmllint \
+merge-conflicts \
+minimap \
+project-manager \
+refactor \
+regex-railroad-diagram \
+split-diff \
+tabs-to-spaces \
+trailing-spaces \
+xml-formatter \
+monokai
 
 
 set +x
@@ -320,7 +374,13 @@ elixir --version
 
 sub_section_heading "phoenix"
 if [ $(strings ~/.mix/archives/phoenix_new.ez | grep -co '{vsn,') = 0 ]; then
-    echo "Error: unable to find installed phoenix"
+    if [ $(strings ~/.mix/archives/phoenix_new/phoenix_new/ebin/phoenix_new.app | grep -co '{vsn,') = 0 ]; then
+        echo "Error: unable to find installed phoenix"
+    else
+        echo "mix help phoenix.new"
+        mix help phoenix.new | sed -e 3b -e '$!d'
+        strings ~/.mix/archives/phoenix_new/phoenix_new/ebin/phoenix_new.app | grep '{vsn,'
+    fi
 else
     echo "mix help phoenix.new"
     mix help phoenix.new | sed -e 3b -e '$!d'
