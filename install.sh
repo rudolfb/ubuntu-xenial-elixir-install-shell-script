@@ -306,11 +306,11 @@ sudo npm install -g elm-oracle
 # sudo npm install -g generator-elm-spa
 
 # https://github.com/avh4/elm-format
-rm -f elm-format-0.17-0.4.0-alpha-linux-x64.tgz
-wget --quiet https://github.com/avh4/elm-format/releases/download/0.4.0-alpha/elm-format-0.17-0.4.0-alpha-linux-x64.tgz
-tar zxvf elm-format-0.17-0.4.0-alpha-linux-x64.tgz
+rm -f elm-format-0.18-0.5.1-alpha-linux-x64.tgz
+wget --quiet https://github.com/avh4/elm-format/releases/download/0.5.1-alpha/elm-format-0.18-0.5.1-alpha-linux-x64.tgz
+tar zxvf elm-format-0.18-0.5.1-alpha-linux-x64.tgz
 sudo mv -f elm-format /usr/local/bin/
-rm -f elm-format-0.17-0.4.0-alpha-linux-x64.tgz
+rm -f elm-format-0.18-0.5.1-alpha-linux-x64.tgz
 
 
 set +x
