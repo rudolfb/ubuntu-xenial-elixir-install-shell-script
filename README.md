@@ -1,5 +1,5 @@
 # ubuntu-xenial-elixir-install-shell-script
-Shell script that automates install of Elixir, Erlang, Node 5.x, Postgres, pgadmin, Phoenix, Elm, Atom, emacs (spacemacs) incl. elixir mode and alchemist.
+Shell script that automates install of Elixir, Erlang, Node 7.x, Postgres, pgadmin, Phoenix, Elm, Atom, emacs (spacemacs) incl. elixir mode and alchemist on Ubuntu 16.04 and 16.10 .
 
 # Usage
 
