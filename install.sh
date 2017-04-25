@@ -45,8 +45,8 @@ set +x
 
 sub_section_heading "git"
 set -x
-GIT_USER_EMAIL="rudolf@bargholz.ch"
-GIT_USER_NAME="Rudolf Bargholz"
+GIT_USER_EMAIL=""
+GIT_USER_NAME=""
 GIT_CREDENTIAL_HELPER_CACHE_TIMEOUT="86400"
 set +x
 
